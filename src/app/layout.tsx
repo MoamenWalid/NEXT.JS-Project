@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cairo, Inter } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/header/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 const cairo = Cairo({ subsets: ["arabic"], weight: ['200', '300', '400', '500', '600', '700'] });
@@ -17,7 +18,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cairo.className}>{children}</body>
+      <body className={cairo.className}>
+        <Header />
+        <main>
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
