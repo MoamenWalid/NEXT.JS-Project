@@ -6,6 +6,8 @@ import Link from 'next/link';
 import Navbar from './Navbar';
 import { CiMenuFries } from "react-icons/ci";
 import Sidebar from './Sidebar';
+import Image from 'next/image';
+import ImagePath from '../../../public/logo-pro.png';
 
 export default function Header() {
   const [toggle, setToggle] = useState<boolean>(false);
@@ -13,7 +15,7 @@ export default function Header() {
   return (
     <header className={ `${ styles.header } py-[8px] px-[20px] md:px-[40px]` }>
       <div className='w-[40px] md:w-[50px]'>
-        <img src="logo-pro.png" alt="logo" />
+        <Image src={ ImagePath } width={40} height={40} alt='logo'  />
       </div>
 
       <Navbar classAtribute='hidden lg:flex flex-center gap-[30px]' />
