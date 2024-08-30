@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-export default function page() {
+const Page = () => {
   return (
-    <>
-      Home Page
-    </>
-  )
+    <div className='fix-height'>
+      Home page
+    </div>
+  );
 }
+
+export default Page;

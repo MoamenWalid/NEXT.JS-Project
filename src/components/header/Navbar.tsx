@@ -1,24 +1,41 @@
-import Link from 'next/link'
-import React from 'react'
-import styles from './header.module.css';
+"use client";
+import Link from "next/link";
+import styles from "./header.module.scss";
+import { GrTechnology } from "react-icons/gr";
+import { useState } from "react";
+import { IoMdClose } from "react-icons/io";
+import { AiOutlineMenu } from "react-icons/ai";
 
-interface NavbarProbs {
-  classAtribute?: string;
-  setToggle?: React.Dispatch<React.SetStateAction<boolean>>;
-}
+const Navbar = () => {
+  const [toggle, setToggle] = useState(false);
 
-export default function Navbar({ classAtribute, setToggle }: NavbarProbs) {
-
-  const funcToSetToggleOnClick = ():void => {
-    if (setToggle) setToggle(false);
-  }
-  
   return (
-    <div className={ classAtribute }>
-    <Link onClick={ funcToSetToggleOnClick } className={ styles.navlink } href='/'>Home</Link>
-    <Link onClick={ funcToSetToggleOnClick } className={ styles.navlink } href='/articles'>Articles</Link>
-    <Link onClick={ funcToSetToggleOnClick } className={ styles.navlink } href='/about'>About</Link>
-    <Link onClick={ funcToSetToggleOnClick } className={ styles.navlink } href='/admin-dashboard'>Admin Dashboard</Link>
-  </div>
-  )
-}
+    <nav className={styles.navbar}>
+      <div>
+        <Link href="/" className={styles.logo}>
+          CLOUD
+          <GrTechnology />
+          HOSTING
+        </Link>
+        <div className={styles.menu}>
+          {toggle ? (<IoMdClose onClick={() => setToggle(prev => !prev)} />) : (<AiOutlineMenu onClick={() => setToggle(prev => !prev)} />)}
+        </div>
+      </div>
+
+      <div
+        className={styles.navLinksWrapper}
+        style={{
+          clipPath: (toggle && "polygon(0 0, 100% 0, 100% 100%, 0 100%)") || "",
+        }}
+      >
+        <ul className={styles.navLinks}>
+          <Link onClick={() => setToggle(false)} className={styles.navLink} href="/" >Home</Link>
+          <Link onClick={() => setToggle(false)} className={styles.navLink} href="/articles" >Articles</Link>
+          <Link onClick={() => setToggle(false)} className={styles.navLink} href="/about" >About</Link>
+        </ul>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
