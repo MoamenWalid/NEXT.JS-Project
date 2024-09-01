@@ -1,3 +1,10 @@
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "ABOUT | PAGE",
+  description: "about page",
+};
+
 
 const AboutPage = () => {
   return (
