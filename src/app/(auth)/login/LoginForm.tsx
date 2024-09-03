@@ -1,8 +1,10 @@
 "use client";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "react-toastify";
 
 const LoginForm = () => {
+  const navigate = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -10,6 +12,7 @@ const LoginForm = () => {
     e.preventDefault();
     if (email === "") return toast.error("Email is required");
     if (password === "") return toast.error("Password is required");
+    navigate.push('/');
 
     console.log({ email, password });
   };

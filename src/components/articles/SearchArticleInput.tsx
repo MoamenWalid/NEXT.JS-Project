@@ -13,7 +13,7 @@ const SearchArticleInput = () => {
   return (
     <form onSubmit={formSubmitHandler} className="my-5 w-full md:w-2/3 m-auto">
       <input
-        className="w-full p-3 rounded text-xl border-none text-gray-900"
+        className="w-full bg-[#f6f6f6] p-3 rounded text-xl border-none text-gray-900"
         type="search"
         placeholder="Search for article"
         value={searchText}

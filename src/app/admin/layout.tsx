@@ -5,9 +5,7 @@ interface AdminDashboardLayoutProps {
   children: React.ReactNode;
 }
 
-const AdminDashboardLayout = ({ children }: AdminDashboardLayoutProps) => {
-  console.log(children);
-  
+const AdminDashboardLayout = ({ children }: AdminDashboardLayoutProps) => {  
   return (
     <div className="overflow-height flex items-start justify-between overflow-hidden">
         <div className="overflow-height w-15 lg:w-1/5 bg-purple-600 text-white p-1 lg:p-5">
